@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bukashki — Экзотические насекомые, формикарии и террариумы</title>
+  <title>Bukashki — Формикарии, муравьи и террариумы для экзотических питомцев</title>
+  <meta name="description" content="Формикарии, муравьиные колонии, террариумы и полезные гайды по уходу за экзотическими питомцами. Всё для комфортного старта и содержания от Bukashki.">
+  <meta property="og:title" content="Bukashki — Формикарии, муравьи и террариумы">
+  <meta property="og:description" content="Формикарии, муравьиные колонии, террариумы и полезные гайды по уходу за экзотическими питомцами.">
+  <meta property="og:image" content="images/telifon.jpg">
+  <meta property="og:type" content="website">
   <style>
     * {
       margin: 0;
@@ -371,16 +376,23 @@
     }
 
     .guide-card {
+      display: block;
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 24px 20px;
       transition: border-color 0.25s, transform 0.25s;
+      color: inherit;
     }
 
     .guide-card:hover {
       border-color: var(--accent);
       transform: translateY(-4px);
+    }
+
+    .guide-card:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
     }
 
     .guide-icon {
@@ -405,8 +417,35 @@
       font-weight: 600;
     }
 
-    .guide-link:hover {
+    .guide-card:hover .guide-link {
       text-decoration: underline;
+    }
+
+    .guide-articles {
+      padding-top: 0;
+    }
+
+    .guide-article {
+      scroll-margin-top: 90px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+
+    .guide-article h2 {
+      font-size: 1.5rem;
+      margin-bottom: 14px;
+    }
+
+    .guide-article p {
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .guide-article p:last-child {
+      margin-bottom: 0;
     }
 
     /* About */
@@ -910,31 +949,56 @@
         <p>Полезные материалы, которые помогут избежать ошибок и правильно ухаживать за питомцами</p>
       </div>
       <div class="guides-grid">
-        <div class="guide-card">
+        <a class="guide-card" href="#guide-colony">
           <div class="guide-icon">🐜</div>
           <h3>Как завести муравьиную колонию</h3>
           <p>От пробирки до большого формикария: пошаговый план для новичка.</p>
-          <a href="#contact" class="guide-link">Читать →</a>
-        </div>
-        <div class="guide-card">
+          <span class="guide-link">Читать →</span>
+        </a>
+        <a class="guide-card" href="#guide-tarantula">
           <div class="guide-icon">🕷️</div>
           <h3>Содержание тарантула</h3>
           <p>Выбор вида, террариум, кормление и безопасность — всё в одном гайде.</p>
-          <a href="#contact" class="guide-link">Читать →</a>
-        </div>
-        <div class="guide-card">
+          <span class="guide-link">Читать →</span>
+        </a>
+        <a class="guide-card" href="#guide-formicarium">
           <div class="guide-icon">🏠</div>
           <h3>Как выбрать формикарий</h3>
           <p>Гипс, акрил или дерево? Сравниваем материалы и конструкции.</p>
-          <a href="#contact" class="guide-link">Читать →</a>
-        </div>
-        <div class="guide-card">
+          <span class="guide-link">Читать →</span>
+        </a>
+        <a class="guide-card" href="#guide-climate">
           <div class="guide-icon">🌡️</div>
           <h3>Влажность и температура</h3>
           <p>Правильный микроклимат — залог здоровья твоих насекомых.</p>
-          <a href="#contact" class="guide-link">Читать →</a>
-        </div>
+          <span class="guide-link">Читать →</span>
+        </a>
       </div>
+    </div>
+  </section>
+
+  <section class="guide-articles" aria-label="Полные тексты гайдов">
+    <div class="container">
+      <article class="guide-article" id="guide-colony">
+        <h2>Как завести муравьиную колонию</h2>
+        <p>Начните с небольшой колонии и подходящего ей гнезда. Пока муравьи живут в пробирке, держите её в спокойном затенённом месте и не тревожьте без необходимости.</p>
+        <p>Переселяйте колонию в формикарий, когда пробирка станет тесной. Обеспечьте доступ к воде и подходящему корму, а остатки пищи убирайте.</p>
+      </article>
+      <article class="guide-article" id="guide-tarantula">
+        <h2>Содержание тарантула</h2>
+        <p>Выбирайте террариум с надёжной крышкой и вентиляцией, подходящий наземному или древесному образу жизни конкретного вида. Добавьте укрытие и подходящий субстрат.</p>
+        <p>Поддерживайте комфортные для вида температуру и влажность, регулярно обновляйте воду и кормите подходящими кормовыми насекомыми. Не беспокойте паука во время линьки и не берите его на руки.</p>
+      </article>
+      <article class="guide-article" id="guide-formicarium">
+        <h2>Как выбрать формикарий</h2>
+        <p>Подбирайте размер гнезда под численность колонии: слишком просторное жилище усложняет уход и контроль чистоты. Для небольшой семьи подойдёт компактная модель, а растущей колонии понадобится больше камер.</p>
+        <p>Обратите внимание на удобство увлажнения, вентиляцию и доступ для уборки. Материал выбирайте с учётом потребностей вида и собственного опыта ухода.</p>
+      </article>
+      <article class="guide-article" id="guide-climate">
+        <h2>Влажность и температура</h2>
+        <p>Требования к микроклимату зависят от вида и стадии развития колонии. Ориентируйтесь на рекомендации для конкретного питомца, а температуру и влажность проверяйте термометром и гигрометром.</p>
+        <p>Избегайте резких перепадов, перегрева и избыточной влаги. Обеспечьте вентиляцию и увлажняйте только ту часть гнезда, где это необходимо.</p>
+      </article>
     </div>
   </section>
 
