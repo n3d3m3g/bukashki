@@ -219,16 +219,21 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 40px 30px;
+      width: 100%;
+      max-width: 420px;
+      padding: 24px;
       text-align: center;
       box-shadow: 0 20px 50px rgba(0,0,0,0.35);
       position: relative;
     }
 
-    .hero-emoji {
-      font-size: 6rem;
-      margin-bottom: 16px;
-      line-height: 1;
+    .hero-image {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      object-position: center 45%;
+      border-radius: 12px;
+      margin-bottom: 18px;
     }
 
     .hero-card h3 {
@@ -336,6 +341,14 @@
       font-size: 4.5rem;
     }
 
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      padding: 14px;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
     .product-body {
       padding: 22px;
     }
@@ -369,10 +382,39 @@
       background: var(--bg);
     }
 
+    .guides-intro {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      max-width: 900px;
+      margin: 0 auto 50px;
+    }
+
+    .guides-intro .section-title {
+      flex: 1;
+      margin-bottom: 0;
+    }
+
+    .guides-intro-image {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      border-radius: 16px;
+    }
+
     .guides-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 24px;
+    }
+
+    .guide-image {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 16px;
     }
 
     .guide-card {
@@ -751,6 +793,14 @@
         padding: 60px 0 50px;
       }
 
+      .hero-card {
+        padding: 18px;
+      }
+
+      .hero-image {
+        height: 200px;
+      }
+
       .hero-text h1 {
         font-size: 2.15rem;
       }
@@ -782,6 +832,16 @@
 
       .section-title h2 {
         font-size: 1.7rem;
+      }
+
+      .guides-intro {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .guides-intro-image {
+        width: 120px;
+        height: 120px;
       }
     }
   </style>
@@ -823,7 +883,7 @@
       </div>
       <div class="hero-visual">
         <div class="hero-card">
-          <div class="hero-emoji">🕷️🐜🦂</div>
+          <img class="hero-image" src="images/telifon.jpg" alt="Паук-птицеед на грунте в террариуме">
           <h3>Твой первый формикарий</h3>
           <p>Готовые комплекты для начинающих и продвинутых киперов</p>
         </div>
@@ -872,7 +932,9 @@
       </div>
       <div class="products-grid">
         <div class="product-card">
-          <div class="product-image">🐜</div>
+          <div class="product-image">
+            <img src="images/start.webp" alt="Компактный чёрный стартовый формикарий с пробиркой">
+          </div>
           <div class="product-body">
             <h3>Формикарий «Старт»</h3>
             <p>Компактный гипсовый формикарий для небольшой колонии. Идеален новичкам.</p>
@@ -883,7 +945,9 @@
           </div>
         </div>
         <div class="product-card">
-          <div class="product-image">🏡</div>
+          <div class="product-image">
+            <img src="images/form_koloniya.jpg" alt="Просторный формикарий с несколькими камерами для растущей колонии">
+          </div>
           <div class="product-body">
             <h3>Формикарий «Колония»</h3>
             <p>Просторный акриловый формикарий с ареной. Для растущих семей муравьёв.</p>
@@ -944,37 +1008,42 @@
   <!-- Guides -->
   <section class="guides" id="guides">
     <div class="container">
-      <div class="section-title">
-        <h2>Гайды и советы</h2>
-        <p>Полезные материалы, которые помогут избежать ошибок и правильно ухаживать за питомцами</p>
+      <div class="guides-intro">
+        <div class="section-title">
+          <h2>Гайды и советы</h2>
+          <p>Полезные материалы, которые помогут избежать ошибок и правильно ухаживать за питомцами</p>
+        </div>
+        <img class="guides-intro-image" src="images/krutoi_muravei.png" alt="Иллюстрация муравья в очках, отдыхающего на шезлонге">
       </div>
-      <div class="guides-grid">
-        <a class="guide-card" href="#guide-colony">
-          <div class="guide-icon">🐜</div>
-          <h3>Как завести муравьиную колонию</h3>
-          <p>От пробирки до большого формикария: пошаговый план для новичка.</p>
-          <span class="guide-link">Читать →</span>
-        </a>
-        <a class="guide-card" href="#guide-tarantula">
-          <div class="guide-icon">🕷️</div>
-          <h3>Содержание тарантула</h3>
-          <p>Выбор вида, террариум, кормление и безопасность — всё в одном гайде.</p>
-          <span class="guide-link">Читать →</span>
-        </a>
-        <a class="guide-card" href="#guide-formicarium">
-          <div class="guide-icon">🏠</div>
-          <h3>Как выбрать формикарий</h3>
-          <p>Гипс, акрил или дерево? Сравниваем материалы и конструкции.</p>
-          <span class="guide-link">Читать →</span>
-        </a>
-        <a class="guide-card" href="#guide-climate">
-          <div class="guide-icon">🌡️</div>
-          <h3>Влажность и температура</h3>
-          <p>Правильный микроклимат — залог здоровья твоих насекомых.</p>
-          <span class="guide-link">Читать →</span>
-        </a>
-      </div>
-    </div>
+<div class="guides-grid">
+  <a class="guide-card" href="#guide-colony">
+    <img class="guide-image" src="images/koloniya_murashey.jpg" alt="Муравьиная колония: рабочие муравьи и расплод в гнезде">
+    <h3>Как завести муравьиную колонию</h3>
+    <p>От пробирки до большого формикария: пошаговый план для новичка.</p>
+    <span class="guide-link">Читать →</span>
+  </a>
+
+  <a class="guide-card" href="#guide-tarantula">
+    <img class="guide-image" src="images/pavuk.jpg" alt="Тарантул крупным планом">
+    <h3>Содержание тарантула</h3>
+    <p>Выбор вида, террариум, кормление и безопасность — всё в одном гайде.</p>
+    <span class="guide-link">Читать →</span>
+  </a>
+
+  <a class="guide-card" href="#guide-formicarium">
+    <div class="guide-icon">🏠</div>
+    <h3>Как выбрать формикарий</h3>
+    <p>Гипс, акрил или дерево? Сравниваем материалы и конструкции.</p>
+    <span class="guide-link">Читать →</span>
+  </a>
+
+  <a class="guide-card" href="#guide-climate">
+    <div class="guide-icon">🌡️</div>
+    <h3>Влажность и температура</h3>
+    <p>Правильный микроклимат — залог здоровья твоих насекомых.</p>
+    <span class="guide-link">Читать →</span>
+  </a>
+</div>
   </section>
 
   <section class="guide-articles" aria-label="Полные тексты гайдов">
