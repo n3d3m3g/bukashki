@@ -3,12 +3,17 @@ name: Deploy static site
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:
+  workflow_dispatch:          # можно запускать вручную кнопкой
 
 permissions:
   contents: read
   pages: write
   id-token: write
+
+# Не даём запускаться нескольким деплоям одновременно
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   deploy:
@@ -19,6 +24,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Check required files
+        run: |
+          echo "Проверяем наличие нужных файлов..."
+          test -f index.html && echo "index.html — найден"
+          test -f style.css && echo "style.css — найден"
+          echo "Проверка пройдена"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
