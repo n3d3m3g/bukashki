@@ -3,14 +3,14 @@ name: Deploy static site
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:          # можно запускать вручную кнопкой
+  workflow_dispatch:          # позволяет запускать вручную кнопкой
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Не даём запускаться нескольким деплоям одновременно
+# Отменяет старые запуски, если начался новый
 concurrency:
   group: pages
   cancel-in-progress: true
@@ -25,12 +25,32 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # ИСПРАВЛЕННЫЙ ШАГ ПРОВЕРКИ
       - name: Check required files
         run: |
           echo "Проверяем наличие нужных файлов..."
-          test -f index.html && echo "index.html — найден"
-          test -f style.css && echo "style.css — найден"
-          echo "Проверка пройдена"
+          MISSING=0
+          
+          if [ -f index.html ]; then
+            echo "✅ index.html — найден"
+          else
+            echo "❌ ОШИБКА: index.html — НЕ найден!"
+            MISSING=1
+          fi
+          
+          if [ -f style.css ]; then
+            echo "✅ style.css — найден"
+          else
+            echo "❌ ОШИБКА: style.css — НЕ найден!"
+            MISSING=1
+          fi
+          
+          if [ $MISSING -eq 1 ]; then
+            echo "Проверка не пройдена. Останавливаем деплой."
+            exit 1
+          fi
+          
+          echo "Все файлы на месте. Проверка пройдена."
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
